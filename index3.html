@@ -1,97 +1,114 @@
 <!DOCTYPE html>
 <html lang="vi">
-<head>
-<meta charset="UTF-8">
-<title>Đăng nhập</title>
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <title>Đăng nhập</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
-<style>
-body{
-    margin:0;
-    min-height:100vh;
-    display:flex;
-    justify-content:center;
-    align-items:center;
-    background:linear-gradient(135deg,#0f8b8d,#2bb6b8);
-    font-family:'Segoe UI',Tahoma;
-}
-.box{
-    background:#fff;
-    width:100%;
-    max-width:360px;
-    padding:30px;
-    border-radius:16px;
-    box-shadow:0 20px 40px rgba(0,0,0,.2);
-}
-h2{text-align:center;color:#0f8b8d}
-input{
-    width:100%;
-    padding:12px;
-    margin:8px 0 14px;
-    border-radius:10px;
-    border:1px solid #ccc;
-}
-button{
-    width:100%;
-    padding:12px;
-    border:none;
-    border-radius:12px;
-    background:#0f8b8d;
-    color:#fff;
-    font-weight:bold;
-    cursor:pointer;
-}
-.options{
-    display:flex;
-    justify-content:space-between;
-    font-size:13px;
-}
-a{color:#0f8b8d;text-decoration:none;font-weight:600}
-.link{text-align:center;margin-top:14px}
-</style>
-</head>
+    <style>
+      body {
+        margin: 0;
+        min-height: 100vh;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        background: linear-gradient(135deg, #0f8b8d, #2bb6b8);
+        font-family: "Segoe UI", Tahoma;
+      }
+      .box {
+        background: #fff;
+        width: 100%;
+        max-width: 360px;
+        padding: 30px;
+        border-radius: 16px;
+        box-shadow: 0 20px 40px rgba(0, 0, 0, 0.2);
+      }
+      h2 {
+        text-align: center;
+        color: #0f8b8d;
+      }
+      input {
+        width: 100%;
+        padding: 12px;
+        margin: 8px 0 14px;
+        border-radius: 10px;
+        border: 1px solid #ccc;
+      }
+      button {
+        width: 100%;
+        padding: 12px;
+        border: none;
+        border-radius: 12px;
+        background: #0f8b8d;
+        color: #fff;
+        font-weight: bold;
+        cursor: pointer;
+      }
+      .options {
+        display: flex;
+        justify-content: space-between;
+        font-size: 13px;
+      }
+      a {
+        color: #0f8b8d;
+        text-decoration: none;
+        font-weight: 600;
+      }
+      .link {
+        text-align: center;
+        margin-top: 14px;
+      }
+    </style>
+  </head>
 
-<body>
-<div class="box">
-    <h2>ĐĂNG NHẬP</h2>
+  <body>
+    <div class="box">
+      <h2>ĐĂNG NHẬP</h2>
 
-    <form id="loginForm">
-        <input type="email" name="email" placeholder="Email" required>
-        <input type="password" name="password" placeholder="Mật khẩu" required>
+      <form id="loginForm">
+        <input type="email" name="email" placeholder="Email" required />
+        <input
+          type="password"
+          name="password"
+          placeholder="Mật khẩu"
+          required
+        />
 
         <div class="options">
-            <label><input type="checkbox" name="remember"> Ghi nhớ</label>
-            <a href="#">Quên mật khẩu?</a>
+          <label><input type="checkbox" name="remember" /> Ghi nhớ</label>
+          <a href="#">Quên mật khẩu?</a>
         </div>
 
         <button type="submit">Đăng nhập</button>
-    </form>
+      </form>
 
-    <div class="link">
-        Chưa có tài khoản? <a href="fomdangky.html">Đăng ký</a>
+      <div class="link">
+        Chưa có tài khoản? <a href="index2.html">Đăng ký</a>
+      </div>
     </div>
-</div>
 
-<script>
-document.getElementById("loginForm").addEventListener("submit",function(e){
-    e.preventDefault();
+    <script>
+      document
+        .getElementById("loginForm")
+        .addEventListener("submit", function (e) {
+          e.preventDefault();
 
-    const email = this.email.value.trim();
-    const password = this.password.value;
-    const user = JSON.parse(localStorage.getItem("user"));
+          const email = this.email.value.trim();
+          const password = this.password.value;
+          const user = JSON.parse(localStorage.getItem("user"));
 
-    if(!user){
-        alert("❌ Chưa có tài khoản");
-        return;
-    }
+          if (!user) {
+            alert("❌ Chưa có tài khoản");
+            return;
+          }
 
-    if(user.email === email && user.password === password){
-        localStorage.setItem("isLogin","true");
-        window.location.href = "fomgiaodiendangnhap.html";
-    }else{
-        alert("❌ Sai email hoặc mật khẩu");
-    }
-});
-</script>
-</body>
+          if (user.email === email && user.password === password) {
+            localStorage.setItem("isLogin", "true");
+            window.location.href = "index.html";
+          } else {
+            alert("❌ Sai email hoặc mật khẩu");
+          }
+        });
+    </script>
+  </body>
 </html>
